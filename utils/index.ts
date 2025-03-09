@@ -10,6 +10,7 @@ const pinata = new PinataSDK({
     pinataGateway: 'https://ipfs.io',
 });
 
+
 export const truncateAddress = (
     address: string,
     startLength = 6,
