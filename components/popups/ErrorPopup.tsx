@@ -19,7 +19,7 @@ export const ErrorPopup: React.FC<ErrorPopupProps> = ({
 
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gradient-deep">
       <div className="relative bg-white rounded-lg max-w-md w-full p-6">
         <button
           onClick={onClose}

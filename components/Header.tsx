@@ -17,32 +17,32 @@ const Header: React.FC = () => {
 
     return (
         <nav className="bg-black">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-3">
                 <div className="flex items-center justify-between h-16">
                     <Logo />
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-4 bg-white">
                         <Link
-                            href="/create"
+                            href="/"
                             className="bg-white hover:bg-gray-100 text-black px-4 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors cursor-pointer"
                         >
                             Listings
                         </Link>
                         <Link
-                            href="/create"
+                            href="/auctions"
                             className="bg-white hover:bg-gray-100 text-black px-4 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors cursor-pointer"
                         >
                             Auctions
                         </Link>
                         <Link
-                            href="/create"
+                            href="/activity"
                             className="bg-white hover:bg-gray-100 text-black px-4 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors cursor-pointer"
                         >
                             Activity
                         </Link>
                         <Link
-                            href="/create"
+                            href="/profile"
                             className="bg-white hover:bg-gray-100 text-black px-4 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors cursor-pointer"
                         >
                             Profile
@@ -93,28 +93,28 @@ const Header: React.FC = () => {
                 <div className="md:hidden">
                     <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
                         <Link
-                            href="/create"
+                            href="/"
                             //   className="block text-white hover:text-white/80 px-3 py-2"
                             className="bg-white hover:bg-gray-100 text-black px-4 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors cursor-pointer"
                         >
                             Listings
                         </Link>
                         <Link
-                            href="/create"
+                            href="/auctions"
                             //   className="block text-white hover:text-white/80 px-3 py-2"
                             className="bg-white hover:bg-gray-100 text-black px-4 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors cursor-pointer"
                         >
                            Auctions
                         </Link>
                         <Link
-                            href="/create"
+                            href="/activity"
                             //   className="block text-white hover:text-white/80 px-3 py-2"
                             className="bg-white hover:bg-gray-100 text-black px-4 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors cursor-pointer"
                         >
                             Activity
                         </Link>
                         <Link
-                            href="/create"
+                            href="/profile"
                             //   className="block text-white hover:text-white/80 px-3 py-2"
                             className="bg-white hover:bg-gray-100 text-black px-4 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors cursor-pointer"
                         >

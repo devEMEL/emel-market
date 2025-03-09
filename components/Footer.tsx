@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Footer = () => {
     return (
-        <footer className="bg-gradient-to-t from-black to-zinc-900/90 border-t border-zinc-800/30">
+        <footer className="bg-gradient-deep">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <nav className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
                     {/* Main Nav */}
@@ -13,7 +13,7 @@ const Footer = () => {
                         <ul className="space-y-2">
                             <li>
                                 <Link
-                                    href="/create"
+                                    href="/"
                                     className="text-zinc-400 hover:text-white transition-colors"
                                 >
                                     Listings
@@ -21,7 +21,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/"
+                                    href="/auctions"
                                     className="text-zinc-400 hover:text-white transition-colors"
                                 >
                                     Auctions
@@ -29,7 +29,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/profile"
+                                    href="/activity"
                                     className="text-zinc-400 hover:text-white transition-colors"
                                 >
                                     Activity
@@ -37,7 +37,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/faucet"
+                                    href="/profile"
                                     className="text-zinc-400 hover:text-white transition-colors"
                                 >
                                     Profile

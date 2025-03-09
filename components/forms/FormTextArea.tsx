@@ -29,7 +29,7 @@ export const FormTextArea: React.FC<FormTextAreaProps> = ({
                 onChange={onChange}
                 required={required}
                 rows={4}
-                className="w-full px-3 py-2 bg-black/50 border border-white/20 rounded-lg text-white focus:outline-none focus:border-white/40"
+                className="w-full px-3 py-2 bg-gradient-deep border border-white/20 rounded-lg text-white focus:outline-none focus:border-white/40"
             />
         </div>
     );

@@ -30,10 +30,10 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
 
 
     return (
-        <div className="bg-black rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-1">
+        <div className="bg-gradient-deep rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-1">
             <Link
                 href={`/collection/${collection.id}`}
-                className="block bg-black rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-1"
+                className="block bg-gradient-deep rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-1"
             >
                 <img
                     src={imageSrc}

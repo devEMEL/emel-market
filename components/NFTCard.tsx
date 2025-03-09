@@ -23,8 +23,8 @@ const NFTCard: React.FC<NFTProps> = ({ nft }) => {
 
     const { imageSrc, isLoading, error } = useImageLoader(nft.imageUrl);
     return (
-        <div className="bg-black rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-1">
-            <div className="block bg-black rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-1">
+        <div className="bg-gradient-deep rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-1">
+            <div className="block bg-gradient-deep rounded-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-1">
                 <img
                     src={imageSrc}
                     alt={nft.name}

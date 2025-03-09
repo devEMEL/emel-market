@@ -22,8 +22,8 @@ export const SuccessPopup: React.FC<SuccessPopupProps> = ({
     const { imageSrc, isLoading } = useImageLoader(imageUrl);
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-            <div className="relative bg-black text-white rounded-lg max-w-md w-full p-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gradient-deep">
+            <div className="relative bg-gradient-deep text-white rounded-lg max-w-md w-full p-6">
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"

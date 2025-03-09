@@ -21,7 +21,7 @@ export const CollectionStats: React.FC<CollectionStatsProps> = ({
 }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-black/80 p-4 rounded-lg">
+            <div className="bg-gradient-deep p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-white/60 mb-1">
                     Contract Address
                 </h3>
@@ -30,7 +30,7 @@ export const CollectionStats: React.FC<CollectionStatsProps> = ({
                     
                 </p>
             </div>
-            <div className="bg-black/80 p-4 rounded-lg">
+            <div className="bg-gradient-deep p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-white/60 mb-1">
                     Owner Address
                 </h3>
@@ -38,7 +38,7 @@ export const CollectionStats: React.FC<CollectionStatsProps> = ({
                 <Link  href={`https://testnet.monadexplorer.com/address/${ownerAddress}`}  target='blank'>{truncateAddress(ownerAddress)}</Link>
                 </p>
             </div>
-            <div className="bg-black/80 p-4 rounded-lg">
+            <div className="bg-gradient-deep p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-white/60 mb-1">
                     Created
                 </h3>
@@ -46,13 +46,13 @@ export const CollectionStats: React.FC<CollectionStatsProps> = ({
                     {formatRelativeTime(createdAt)}
                 </p>
             </div>
-            <div className="bg-black/80 p-4 rounded-lg">
+            <div className="bg-gradient-deep p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-white/60 mb-1">
                     Price
                 </h3>
                 <p className="text-white">{weiToEther(String(price))} MON</p>
             </div>
-            <div className="bg-black/80 p-4 rounded-lg">
+            <div className="bg-gradient-deep p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-white/60 mb-1">
                     Minted
                 </h3>
@@ -60,7 +60,7 @@ export const CollectionStats: React.FC<CollectionStatsProps> = ({
                     {mintedAmount || 0} / {totalSupply || 0}
                 </p>
             </div>
-            <div className="bg-black/80 p-4 rounded-lg">
+            <div className="bg-gradient-deep p-4 rounded-lg">
                 <h3 className="text-sm font-medium text-white/60 mb-1">
                     Progress
                 </h3>

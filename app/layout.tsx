@@ -85,13 +85,14 @@ export default function RootLayout({
             <body
                 className={`${PT_Mono_.className} antialiased overflow-x-hidden text-sm`}
             >
-                <div className="relative bg-black">
+
+                <div className="bg-gradient-deep">
                     <WagmiProvider config={wagmiConfig}>
                         <QueryClientProvider client={queryClient}>
                             <ApolloProvider client={client}>
                                 <RainbowKitProvider>
                                     <Header />
-                                    <div className="min-h-screen max-w-6xl mx-auto space-y-8 px-5 py-14 lg:px-10">
+                                    <div className="min-h-screen max-w-7xl mx-auto space-y-8 px-5 py-14 lg:px-10">
                                         {children}
                                     </div>
                                     <Footer />
