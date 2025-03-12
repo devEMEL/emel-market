@@ -12,14 +12,16 @@ import { GET_LISTINGS } from '@/queries/listingsQueries';
 import Erc721Abi from "@/abi/Erc721.json";
 
 interface ListingPageProps {
-  id?: string;
+    params: {
+        id: string;
+    }
 }
 
 interface ExistingData {
     listings: any[]
 }
 
-const page: React.FC<ListingPageProps> = ({ params }: any) => {
+const page: React.FC<ListingPageProps> = ({ params }) => {
 
     const { id } = params;  //
  
