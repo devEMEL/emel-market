@@ -1,5 +1,5 @@
 import { ethers} from 'ethers';
-
+import axios from 'axios';
 import { FileObject, PinataSDK } from 'pinata-web3';
 
 const IMAGE_SAMPLE =
@@ -10,6 +10,7 @@ const pinata = new PinataSDK({
     pinataGateway: 'https://ipfs.io',
 });
 
+export const zeroAddress = "0x0000000000000000000000000000000000000000";
 
 export const truncateAddress = (
     address: string,
@@ -71,4 +72,40 @@ export const normalizeScientificNotation = (value: string | number): string => {
       }
     }
     return str;
+
+}
+
+function flattenNFTs(mynfts: any) {
+    if (!mynfts || !Array.isArray(mynfts)) return [];
+  
+    return mynfts.flatMap(collection =>
+      collection.items.map((token: any) => ({
+        contractAddress: collection.contractAddress,
+        ercStandard: collection.ercStandard,
+        collectionImage: collection.image, // Collection image
+        tokenId: token.tokenId,
+        tokenImage: token.image, // Token image
+        tokenName: token.name.split("#")[0].trim(),
+      }))
+    );
   }
+  
+
+export const fetchNFTs = async(address: any) => {
+    try {
+      const response = await axios.get('https://api.blockvision.org/v2/monad/account/nfts', {
+        params: {
+          address,
+        //   pageIndex: 1
+        },
+        headers: {
+          'accept': 'application/json',
+          'x-api-key': '2u8MSGSwUroZU2AT4CCy2GVQqgS'
+        }
+      });
+      return flattenNFTs(response.data.result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  

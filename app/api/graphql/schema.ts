@@ -1,7 +1,6 @@
 import { gql } from '@apollo/client';
-import { CollectionType } from './type/Collection';
 import { NFTType } from './type/NFT';
-import { FaucetType } from './type/Faucet';
+import { listingType } from './type/listing';
 
 const baseSchema = gql`
     type Query {
@@ -13,4 +12,4 @@ const baseSchema = gql`
     }
 `;
 
-export const typeDefs = [baseSchema, CollectionType, NFTType, FaucetType];
+export const typeDefs = [baseSchema, NFTType, listingType]; // add other types like listing and auction

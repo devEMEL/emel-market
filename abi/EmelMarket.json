@@ -2,7 +2,7 @@
     "network": [
         {
             "name": "monadTestnet",
-            "address": "0xAfF72Db3fA597546517d172be9A530E99AEDddFE"
+            "address": "0x2B73383E329D7577b86A328b56B1d4ddB11f9CAB"
         }
     ],
     "abi": [
@@ -223,6 +223,12 @@
               "internalType": "address",
               "name": "owner",
               "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "createdAt",
+              "type": "uint256"
             }
           ],
           "name": "NFTListed",

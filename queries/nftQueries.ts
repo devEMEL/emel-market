@@ -1,54 +1,21 @@
 import { gql } from '@apollo/client';
 
-export const GET_NFTS = gql`
-    query getNFTs {
-        nfts {
+
+export const GET_USER_NFTS = gql`
+    query getUserNFTS($address: String!, $chainId: String!) {
+        nfts(address: $address, chainId: $chainId) {
             id
-            chainId
-            name
-            symbol
-            description
-            collectionAddress
+            contractAddress
             tokenId
-            ownerAddress
-            mintedAt
-            imageUrl
+            collectionImage
+            ercStandard
+            tokenImage
+            tokenName
+            chainId
         }
     }
 `;
 
-export const GET_NFT = gql`
-    query getNFT($id: String!) {
-        nft(id: $id) {
-            id
-            chainId
-            name
-            symbol
-            description
-            collectionAddress
-            tokenId
-            ownerAddress
-            mintedAt
-            imageUrl
-        }
-    }
-`;
 
-export const GET_NFTS_BY_OWNER = gql`
 
-    query GetNftsByOwner($ownerAddress: String!, $chainId: String!) {
-        getNftsByOwner(ownerAddress: $ownerAddress, chainId: $chainId) {
-            id
-            chainId
-            name
-            symbol
-            description
-            collectionAddress
-            tokenId
-            ownerAddress
-            mintedAt
-            imageUrl
-        }
-    }
 
-`;

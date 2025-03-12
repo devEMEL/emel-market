@@ -1,6 +1,10 @@
 "use client"
-import React, { useState } from 'react';
-import { Wallet, Tag, Gavel, History, ExternalLink, Clock } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Wallet, Tag, Gavel, History, ExternalLink } from 'lucide-react';
+import { GET_USER_NFTS } from '@/queries/nftQueries';
+import { useAccount } from 'wagmi';
+import { useQuery } from '@apollo/client';
+import Link from 'next/link';
 
 type Tab = 'nfts' | 'listings' | 'auctions' | 'activity';
 
@@ -37,6 +41,30 @@ interface Transaction {
 
 const page = () => {
   const [activeTab, setActiveTab] = useState<Tab>('nfts');
+
+    // const chainId = useChainId();
+    const { address } = useAccount();
+
+
+    
+
+    const { loading: nftsFetchLoading, error: nftsFetchError, data: nftsFetchData } = useQuery(GET_USER_NFTS, {
+        variables: { address, chainId: String(10143) },
+        skip: !address, // Skip query until address is available
+    });
+
+
+
+  const _myNFTs = [
+    {   
+        collectionImage: "https://ipfs.io/ipfs/bafkreifvmdhd54eiaep2xl2gdakfagl2azjfxas2bbx2v2xgp6uvryvgh4",
+        contractAddress: "0xDE6FCD074d20948b9C6587644D9B70A8bcBE5b12",
+        ercStandard: "ERC721",
+        tokenId: "2",
+        tokenImage: "https://ipfs.io/ipfs/bafkreifvmdhd54eiaep2xl2gdakfagl2azjfxas2bbx2v2xgp6uvryvgh4",
+        tokenName: "Ethereal Artifacts"
+    }
+  ]
 
   const mockNFTs: NFT[] = [
     {
@@ -101,16 +129,31 @@ const page = () => {
     }
   };
 
+  useEffect(() => {
+    console.log({nftsFetchData})
+  })
+
+  if (nftsFetchLoading) return <p>Loading...</p>; // Loading Spinner
+  if (nftsFetchError) return <p>Error : {nftsFetchError.message}</p>
+  if(!nftsFetchData) {
+      return <p>No data available</p>
+  }
+
   const renderNFTGrid = (items: NFT[]) => (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {items.map((nft, index) => (
+      {nftsFetchData?.nfts.map((nft, index) => (
         <div key={index} className="bg-gray-800/30 rounded-lg overflow-hidden">
-          <img src={nft.image} alt={nft.name} className="w-full h-48 object-cover" />
-          <div className="p-4">
-            <h3 className="text-lg font-semibold">{nft.name} #{nft.tokenId}</h3>
-            {/* <p className="text-gray-400 text-sm">Token ID: {nft.tokenId}</p> */}
-            <p className="text-gray-400 text-sm truncate">CA: {nft.contractAddress}</p>
-          </div>
+            <Link href={{
+                pathname:`/listing/${nft.id}`,
+                query: { nft: JSON.stringify(nft)}
+            }}>
+            <img src={nft.collectionImage} alt={nft.tokenName} className="w-full h-48 object-cover" />
+            <div className="p-4">
+                <h3 className="text-lg font-semibold">{nft.tokenName} #{nft.tokenId}</h3>
+                {/* <p className="text-gray-400 text-sm">Token ID: {nft.tokenId}</p> */}
+                <p className="text-gray-400 text-sm truncate">CA: {nft.contractAddress}</p>
+            </div>
+            </Link>
         </div>
       ))}
     </div>
@@ -218,6 +261,13 @@ const page = () => {
             </div>
           </div>
         </div>
+
+
+        {/* <button onClick={ async() => {
+            const mynfts = await fetchNFTs();
+            console.log({mynfts});
+        }}>view my nfts</button> */}
+            
 
         <div className="mb-8">
           <nav className="flex space-x-4">
