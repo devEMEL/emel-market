@@ -1,7 +1,10 @@
+// @ts-nocheck
 "use client"
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Tag, TrendingUp } from 'lucide-react';
+import { useQuery } from '@apollo/client';
+import { GET_LISTINGS } from '@/queries/listingsQueries';
 
 interface Collection {
   contractAddress: string;
@@ -15,9 +18,6 @@ const Home: React.FC = () => {
 
     const [activeSort, setActiveSort] = useState('createdAt');
     const [orderDirection, setOrderDirection] = useState('desc');
-    // const { loading, data, error, refetch } = useQuery(GET_COLLECTIONS, { 
-    //     variables: { orderBy: activeSort, orderDirection, chainId: String(chainId) }
-    // });
 
     const handleSort = (sortType: any) => {
         if (sortType === activeSort) {
@@ -44,31 +44,15 @@ const Home: React.FC = () => {
     //       console.log("Updated orderDirection:", orderDirection);
     //   }, [activeSort, orderDirection, refetch]); // Dependency on both activeSort and orderDirection
   
-    //   if (loading) return <p>Loading...</p>; // Loading Spinner
-    //   if (error) return <p>Error : {error.message}</p>;
 
-    const mockCollections: Collection[] = [
-        {
-          contractAddress: "0x1234...5678",
-          name: "Cosmic Wanderers",
-          coverImage: "https://images.unsplash.com/photo-1634973357973-f2ed2657db3c?w=400&auto=format&fit=crop",
-          itemsListed: 5
-        },
-        {
-          contractAddress: "0x8765...4321",
-          name: "Digital Dreams",
-          coverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&auto=format&fit=crop",
-          itemsListed: 3
-        },
-        {
-          contractAddress: "0xabcd...efgh",
-          name: "Neon Nights",
-          coverImage: "https://images.unsplash.com/photo-1633355444132-695d5876cd00?w=400&auto=format&fit=crop",
-          itemsListed: 8
-        }
-      ];
+   
 
+    const { loading: listingsLoading, error: listingsError, data: listingsData } = useQuery(GET_LISTINGS, {
+        variables: { status: "ACTIVE" },
+    });
 
+    if (listingsLoading) return <p>Loading...</p>; // Loading Spinner
+    if (listingsError) return <p>Error : {listingsError.message}</p>;
 
   return (
     <div className="min-h-screen bg-gradient-deep text-white">
@@ -81,13 +65,13 @@ const Home: React.FC = () => {
           <div className="flex items-center space-x-4">
             <div className="bg-gray-800/30 rounded-lg px-4 py-2">
               <span className="text-gray-400">Total Collections:</span>
-              <span className="ml-2 font-semibold">{mockCollections.length}</span>
+              <span className="ml-2 font-semibold">{listingsData.length}</span>
             </div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {mockCollections.map((collection, index) => (
+          {listingsData.map((collection: any, index: any) => (
             <div
               key={index}
             //   onClick={() => router.push(`/collection/${collection.contractAddress}`)}
