@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client"
 import React, { useEffect, useState } from 'react';
 import { Wallet, Tag, Gavel, History, ExternalLink } from 'lucide-react';

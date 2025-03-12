@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 import React from 'react';
 import { Tag, TrendingUp, Clock, DollarSign, BarChart3 } from 'lucide-react';

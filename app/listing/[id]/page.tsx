@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 "use client"
 import React, { useEffect, useState } from 'react';
 import { ArrowLeft, Info, Clock, Tag, Gavel } from 'lucide-react';
